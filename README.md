@@ -1,36 +1,201 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DriveFleet Car Rental Platform
 
-## Getting Started
+A modern full-stack car rental platform where users can explore cars, view detailed information, book vehicles, manage their bookings, and maintain their own car listings with secure JWT-based authentication.
 
-First, run the development server:
+##  Live Website
+
+**Live URL:** https://your-live-site.vercel.app
+
+##  Repositories
+
+* **Client Repository:** https://github.com/your-username/drivefleet-client
+* **Server Repository:** https://github.com/your-username/drivefleet-server
+
+---
+
+##  Key Features
+
+*  **Secure JWT Authentication** with HTTPOnly cookies and protected APIs.
+*  **Explore Cars** with real-time search by car name using MongoDB `$regex`.
+*  **Filter by Car Type** (SUV, Sedan, Luxury, Sports, etc.).
+*  **Car Booking System** with booking history and booking management.
+*  **Automatic Booking Count** using MongoDB `$inc` operator after each successful booking.
+*  **My Added Cars Dashboard** to update and delete only the owner's cars.
+*  **Modern Responsive UI** built with Next.js, Tailwind CSS, HeroUI, and Framer Motion animations.
+*  **Protected Private Routes** that persist on page reload without redirecting authenticated users.
+
+---
+
+##  Tech Stack
+
+### Frontend
+
+* **Next.js 15**
+* **React 19**
+* **Tailwind CSS**
+* **HeroUI**
+* **Framer Motion**
+* **React Hot Toast**
+* **Lucide React**
+
+### Backend
+
+* **Node.js**
+* **Express.js**
+* **MongoDB**
+* **JOSE (JWT Verification)**
+* **dotenv**
+* **cors**
+
+---
+
+##  Project Structure
+
+### Client
+
+```
+src/
+├── app/
+├── components/
+├── lib/
+├── provider/
+└── styles/
+```
+
+### Server
+
+```
+server/
+├── index.js
+├── middleware/
+├── routes/
+└── .env
+```
+
+---
+
+##  Environment Variables
+
+### Client (`.env.local`)
+
+```env
+NEXT_PUBLIC_SERVER_URL=http://localhost:8080
+```
+
+### Server (`.env`)
+
+```env
+PORT=8080
+MONGODB_URI=your_mongodb_connection_string
+CLIENT_URL=http://localhost:3000
+```
+
+---
+
+##  Installation & Setup
+
+### 1. Clone the repositories
+
+```bash
+git clone https://github.com/your-username/drivefleet-client.git
+git clone https://github.com/your-username/drivefleet-server.git
+```
+
+### 2. Install dependencies
+
+#### Client
+
+```bash
+cd drivefleet-client
+npm install
+```
+
+#### Server
+
+```bash
+cd drivefleet-server
+npm install
+```
+
+### 3. Run the development servers
+
+#### Start Backend
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Start Frontend
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Open in browser
 
-## Learn More
+Visit:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  Security Implementation
 
-## Deploy on Vercel
+* JWT token generation and verification.
+* HTTPOnly cookie-based authentication.
+* Protected API routes with middleware.
+* Owner-based authorization for update and delete operations.
+* Environment variables for sensitive credentials.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##  Responsive Design
+
+The application is fully optimized for:
+
+* Mobile devices
+* Tablets
+* Laptops
+* Desktop screens
+
+---
+
+##  Animation & UX
+
+* Smooth page transitions with **Framer Motion**.
+* Animated car cards and sections.
+* Loading spinners during data fetching.
+* Custom 404 Not Found page.
+* Toast-based success and error notifications.
+
+---
+
+##  API Highlights
+
+### Cars
+
+* `GET /cars`
+* `GET /cars/:id`
+* `POST /cars`
+* `PATCH /cars/:id`
+* `DELETE /cars/:id`
+
+### Bookings
+
+* `GET /bookings`
+* `POST /bookings`
+* `DELETE /bookings/:id`
+
+### Features
+
+* `GET /features`
+
+---
+
+## 👨‍💻 Author
+
+**ISRAN KHAN**
+
+Built as part of the **Programming Hero Assignment - CAT_05** using **Next.js, Express.js, MongoDB, and JWT Authentication**.

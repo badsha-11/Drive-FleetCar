@@ -18,7 +18,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
-        const res = await fetch("http://localhost:8080/hero");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/hero`);
 
         if (!res.ok) {
           throw new Error("Failed to fetch hero data");
@@ -38,8 +38,41 @@ const Hero = () => {
 
   if (loading) {
     return (
-      <div className="h-[92vh] flex items-center justify-center">
-        <h2 className="text-2xl font-bold">Loading...</h2>
+      <div className="h-screen flex items-center justify-center bg-linear-to-br from-slate-950 via-blue-950 to-slate-900">
+        <div className="flex flex-col items-center">
+          {/* Animated Ring */}
+          <div className="relative">
+            <div className="h-24 w-24 rounded-full border-4 border-cyan-500/20"></div>
+
+            <div className="absolute inset-0 h-24 w-24 rounded-full border-4 border-transparent border-t-cyan-400 border-r-blue-500 animate-spin"></div>
+
+            <div className="absolute inset-4 flex items-center justify-center">
+              <span className="text-3xl"></span>
+            </div>
+          </div>
+
+          {/* Loading Text */}
+          <h2 className="mt-8 text-3xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Loading Drive Fleet...
+          </h2>
+
+          <p className="mt-2 text-gray-400">
+            Preparing premium cars for you...
+          </p>
+
+          {/* Animated Dots */}
+          <div className="mt-6 flex gap-2">
+            <span className="h-3 w-3 rounded-full bg-cyan-400 animate-bounce"></span>
+            <span
+              className="h-3 w-3 rounded-full bg-blue-500 animate-bounce"
+              style={{ animationDelay: "0.2s" }}
+            ></span>
+            <span
+              className="h-3 w-3 rounded-full bg-cyan-300 animate-bounce"
+              style={{ animationDelay: "0.4s" }}
+            ></span>
+          </div>
+        </div>
       </div>
     );
   }
